@@ -2,14 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b4717044-093a-46fa-955f-87ff83ee0122" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/readme/gitCommand.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/readme/terminalCommand.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/mysql/entiti/City.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/mysql/repository/GenericRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/mysql/repository/Repository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/mysql/repository/impl/CityRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/mysql/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/mysql/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/mysql/entiti/City.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/mysql/entiti/City.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/mysql/repository/GenericRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/mysql/repository/GenericRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/mysql/repository/Repository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/mysql/repository/Repository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/mysql/repository/impl/CityRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/mysql/repository/impl/CityRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,16 +90,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/mysql/Application.java</url>
-          <line>20</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

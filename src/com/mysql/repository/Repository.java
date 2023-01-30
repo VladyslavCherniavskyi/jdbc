@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface Repository<E, I> {
 
-    E get(I i);
+    E get(I id);
 
     List<E> getAll();
 
