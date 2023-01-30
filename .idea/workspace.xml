@@ -2,13 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b4717044-093a-46fa-955f-87ff83ee0122" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/java-mysql.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/mysql/Application.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/readme/gitCommand.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/readme/terminalCommand.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/mysql/entiti/City.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/mysql/repository/GenericRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/mysql/repository/Repository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/mysql/repository/impl/CityRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/mysql/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/mysql/Application.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,6 +19,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -38,11 +40,17 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "/Users/vladyslavcherniavskyi/IdeaProjects/java-mysql",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.mysql.Application" />
@@ -90,7 +98,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/mysql/Application.java</url>
-          <line>19</line>
+          <line>20</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>

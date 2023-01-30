@@ -17,6 +17,7 @@ public class Application {
                 String continent = rs.getString("Continent");
                 Integer population = (Integer) rs.getInt("Population");
                 Integer indepYear = (Integer) rs.getObject("IndepYear");
+
                 System.out.println("Code = '" + code + "', Name = '" + name + "'," + " Continent = '" + continent + "'," + " Population = " + population + ", " + " IndepYear = " + indepYear + "");
             }
         } catch (SQLException e) {
