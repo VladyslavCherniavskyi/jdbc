@@ -1,8 +1,13 @@
 package com.mysql.repository;
 
+import com.mysql.exception.CloseException;
+import com.mysql.exception.NotFoundException;
+import com.mysql.repository.impl.ConnectionDatabase;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public abstract class GenericRepository<E, I> implements Repository<E, I> {
 
@@ -19,16 +24,29 @@ public abstract class GenericRepository<E, I> implements Repository<E, I> {
 
     @Override
     public E get(I id) {
-        String getAllQuery = "select * from " + tableName + " where " + nameId + "= " + id;
-        try (Connection connection = DriverManager.getConnection(CONNECTION_URL, USERNAME, PASSWORD);
-             Statement statement = connection.createStatement();
-             ResultSet resultSet = statement.executeQuery(getAllQuery)) {
-            while (resultSet.next()) {
-                break;
+        String getAllQuery = "select * from " + tableName + " where " + nameId + " = ?";
+
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+
+        try {
+            connection = DriverManager.getConnection(CONNECTION_URL, USERNAME, PASSWORD);
+            preparedStatement = connection.prepareStatement(getAllQuery);
+            preparedStatement.setObject(1, id);
+            resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()) {
+                return mapTo(resultSet);
+            } else {
+                throw new NotFoundException(tableName + " with id " + id + " is not found");
             }
-            return map(resultSet);
         } catch (SQLException ex) {
             throw new IllegalStateException(ex);
+        } finally {
+            close(resultSet);
+            close(preparedStatement);
+            close(connection);
         }
     }
 
@@ -40,7 +58,7 @@ public abstract class GenericRepository<E, I> implements Repository<E, I> {
              ResultSet resultSet = statement.executeQuery(getAllQuery)) {
             List<E> entities = new ArrayList<>();
             while (resultSet.next()) {
-                entities.add(map(resultSet));
+                entities.add(mapTo(resultSet));
             }
             return entities;
         } catch (SQLException ex) {
@@ -48,6 +66,36 @@ public abstract class GenericRepository<E, I> implements Repository<E, I> {
         }
     }
 
-    protected abstract E map(ResultSet resultSet) throws SQLException;
+    protected abstract E mapTo(ResultSet resultSet) throws SQLException;
+
+    private void close(ResultSet resultSet){
+        try {
+            if(Objects.nonNull(resultSet)) {
+                resultSet.close();
+            }
+        } catch (SQLException ex) {
+            throw new CloseException(ex);
+        }
+    }
+
+    private void close(Statement statement){
+        try {
+            if(Objects.nonNull(statement)) {
+                statement.close();
+            }
+        } catch (SQLException ex) {
+            throw new CloseException(ex);
+        }
+    }
+
+    private void close(Connection connection){
+        try {
+            if(Objects.nonNull(connection)) {
+                connection.close();
+            }
+        } catch (SQLException ex) {
+            throw new CloseException(ex);
+        }
+    }
 
 }

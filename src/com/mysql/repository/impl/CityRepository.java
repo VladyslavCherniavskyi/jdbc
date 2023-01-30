@@ -3,6 +3,7 @@ package com.mysql.repository.impl;
 import com.mysql.entiti.City;
 import com.mysql.repository.GenericRepository;
 
+import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -16,7 +17,7 @@ public class CityRepository extends GenericRepository<City, Integer> {
     }
 
     @Override
-    protected City map(ResultSet resultSet) throws SQLException {
+    protected City mapTo(ResultSet resultSet) throws SQLException {
 
         Integer id = (Integer) resultSet.getObject("ID");
         String name = resultSet.getString("Name");

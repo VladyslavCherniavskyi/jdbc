@@ -9,8 +9,8 @@ public class Application {
 
         Repository<City, Integer> cityRepository = new CityRepository();
 
-        System.out.println(cityRepository.get(1));
+        System.out.println(cityRepository.get(0));
 
-        System.out.println(cityRepository.getAll());
+//        System.out.println(cityRepository.getAll());
     }
 }
