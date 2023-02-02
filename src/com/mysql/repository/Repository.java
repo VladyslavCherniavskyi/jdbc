@@ -8,4 +8,8 @@ public interface Repository<E, I> {
 
     List<E> getAll();
 
+    void remove(I id);
+
+    E add(E entity);
+
 }

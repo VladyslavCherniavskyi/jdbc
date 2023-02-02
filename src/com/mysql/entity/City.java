@@ -1,4 +1,4 @@
-package com.mysql.entiti;
+package com.mysql.entity;
 
 public class City {
     private Integer id;
