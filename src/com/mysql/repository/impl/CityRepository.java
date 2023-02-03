@@ -1,14 +1,15 @@
 package com.mysql.repository.impl;
 
+import com.mysql.config.DataSource;
 import com.mysql.converter.jdbc.insert.InsertJdbcConverter;
 import com.mysql.entity.City;
-import com.mysql.repository.GenericRepository;
+import com.mysql.repository.IntegerGenericRepository;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Map;
 
-public class CityRepository extends GenericRepository<City, Integer> {
+public class CityRepository extends IntegerGenericRepository<City> {
 
     private static final String TABLE_NAME = "city";
     private static final String FIELD_ID = "ID";
@@ -19,14 +20,13 @@ public class CityRepository extends GenericRepository<City, Integer> {
 
     @Override
     protected City mapTo(ResultSet resultSet) throws SQLException {
-
-        Integer id = (Integer) resultSet.getObject("ID");
-        String name = resultSet.getString("Name");
-        String countryCode = resultSet.getString("CountryCode");
-        String district = resultSet.getString("District");
-        Integer population = (Integer) resultSet.getObject("Population");
-
-        return new City(id, name, countryCode, district, population);
+        return new City(
+                resultSet.getObject("ID", Integer.class),
+                resultSet.getString("Name"),
+                resultSet.getString("CountryCode"),
+                resultSet.getString("District"),
+                resultSet.getObject("Population", Integer.class)
+        );
     }
 
     @Override

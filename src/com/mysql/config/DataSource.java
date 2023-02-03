@@ -1,4 +1,4 @@
-package com.mysql.repository.impl;
+package com.mysql.config;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

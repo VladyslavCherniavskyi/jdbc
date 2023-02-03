@@ -1,14 +1,18 @@
 package com.mysql.entity;
 
-public class City {
-    private Integer id;
+public class City extends IdEntity {
+
     private String name;
     private String countryCode;
     private String district;
     private Integer population;
 
     public City(Integer id, String name, String countryCode, String district, Integer population) {
+        this(name, countryCode, district,population);
         this.id = id;
+    }
+
+    public City(String name, String countryCode, String district, Integer population) {
         this.name = name;
         this.countryCode = countryCode;
         this.district = district;

@@ -5,23 +5,24 @@ import com.mysql.entity.City;
 import com.mysql.exception.NotFoundException;
 import com.mysql.repository.Repository;
 import com.mysql.repository.impl.CityRepository;
-import com.mysql.repository.impl.DataSource;
-
-import java.util.Map;
+import com.mysql.config.DataSource;
 
 public class Application {
     public static void main(String[] args) {
-        int id = 4505;
+
+        int id = 4501;
+
         DataSource dataSource = new DataSource();
         InsertJdbcConverter insertJdbcConverter = new InsertJdbcConverter();
         Repository<City, Integer> cityRepository = new CityRepository(dataSource, insertJdbcConverter);
-        City city =
-                new City(null, "a", "NLD", "d", 10);
+
+        City city = new City("a", "NLD", "d", 10);
 
         getAll(cityRepository);
         add(cityRepository, city);
         get(cityRepository, id);
         remove(cityRepository, id);
+
     }
 
     private static void add(Repository<City, Integer> repository, City entity) {
