@@ -23,7 +23,7 @@ public class Application {
         String idString = "7";
         List<String> ids = new ArrayList<>();
         ids.add("6");
-        ids.add("7");
+        ids.add("8");
 
         List<Integer> idInteger = new ArrayList<>();
         idInteger.add(200);
@@ -35,15 +35,16 @@ public class Application {
         );
 
         List<City> cityEntity = List.of(
-                new City(201,"2012", "NLD", "d", 10),
-                new City(202,"2022", "NLD", "d", 11)
+                new City(201, "2012", "NLD", "d", 10),
+                new City(202, "2022", "NLD", "d", 11)
         );
 
         DataSource dataSource = new DataSource();
         InsertJdbcConverter insertJdbcConverter = new InsertJdbcConverter();
         UpdateJdbcConverter updateJdbcConverter = new UpdateJdbcConverter();
         RemoveJdbcConverter removeJdbcConverter = new RemoveJdbcConverter();
-        CityRepository cityRepository = new CityRepositoryImpl(dataSource, insertJdbcConverter, updateJdbcConverter, removeJdbcConverter );
+
+        CityRepository cityRepository = new CityRepositoryImpl(dataSource, insertJdbcConverter, updateJdbcConverter, removeJdbcConverter);
         PhoneRepository phoneRepository = new PhoneRepositoryImpl(dataSource, insertJdbcConverter, updateJdbcConverter, removeJdbcConverter);
 
         City city = new City("aaa", "NLD", "d", 1);
@@ -53,12 +54,9 @@ public class Application {
 //        getAll(phoneRepository);
 
 //        add(cityRepository, city);
-        add(cityRepository, null);
-        // TODO  throw massage "Id is not needed to population into entity"
 //        add(phoneRepository, phone);
 
 //        get(cityRepository, id);
-        // TODO one first result?
 //        get(phoneRepository, idString);
 
 //        remove(cityRepository, id);
@@ -68,8 +66,6 @@ public class Application {
 //        edit(phoneRepository, phone);
 
 //        removeAll(phoneRepository);
-
-        // TODO check null??
 //        removeAll(phoneRepository, ids);
 //        removeAll(cityRepository, idInteger);
 
@@ -80,11 +76,10 @@ public class Application {
 //        addAll(cityRepository,cityEntity);
 
 //        System.out.println(ids);
-        getAll(phoneRepository);
+//        getAll(phoneRepository);
+
 //        get(cityRepository, 201);
 //        get(cityRepository, 202);
-
-
     }
 
     private static <E, I> void add(Repository<E, I> repository, E entity) {
