@@ -8,14 +8,10 @@ import java.util.stream.Collectors;
 public class RemoveJdbcConverter {
 
     public <I> RemoveDataDto convert(List<I> rowData) {
-        StringBuilder fieldsPart = new StringBuilder();
-
-        rowData.stream()
-                .map(key -> "?,")
-                .forEach(fieldsPart::append);
-
-        return new RemoveDataDto(fieldsPart.toString());
+        return new RemoveDataDto(rowData.stream()
+                .map(key -> "?")
+                .collect(Collectors.joining(", "))
+        );
     }
-
 }
 
