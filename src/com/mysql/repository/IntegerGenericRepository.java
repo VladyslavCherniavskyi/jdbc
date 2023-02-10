@@ -1,17 +1,26 @@
 package com.mysql.repository;
 
-import com.mysql.converter.jdbc.insert.InsertJdbcConverter;
 import com.mysql.config.DataSource;
+import com.mysql.converter.jdbc.insert.InsertJdbcConverter;
+import com.mysql.converter.jdbc.remove.RemoveJdbcConverter;
+import com.mysql.converter.jdbc.update.UpdateJdbcConverter;
 import com.mysql.entity.IdEntity;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Objects;
 
 public abstract class IntegerGenericRepository<E extends IdEntity> extends GenericRepository<E, Integer> {
 
-    public IntegerGenericRepository(String tableName, String fieldId, DataSource dataSource, InsertJdbcConverter insertJdbcConverter) {
-        super(tableName, fieldId, dataSource, insertJdbcConverter);
+    public IntegerGenericRepository(
+            String tableName,
+            String fieldId,
+            DataSource dataSource,
+            InsertJdbcConverter insertJdbcConverter,
+            UpdateJdbcConverter updateJdbcConverter,
+            RemoveJdbcConverter removeJdbcConverter) {
+        super(tableName, fieldId, dataSource, insertJdbcConverter, updateJdbcConverter, removeJdbcConverter);
     }
 
     @Override
@@ -32,5 +41,13 @@ public abstract class IntegerGenericRepository<E extends IdEntity> extends Gener
         } finally {
             close(resultSet);
         }
+    }
+
+    @Override
+    protected Integer getId(E entity) {
+        if (Objects.isNull(entity.getId())) {
+            throw new IllegalStateException("Id is not found");
+        }
+        return entity.getId();
     }
 }
