@@ -25,3 +25,4 @@ public class InsertJdbcConverter {
         return new InsertDataDto(fieldsPart.toString(), valuesPart.toString(), value);
     }
 }
+

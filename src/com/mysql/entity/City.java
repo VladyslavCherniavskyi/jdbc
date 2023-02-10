@@ -8,7 +8,7 @@ public class City extends IdEntity {
     private Integer population;
 
     public City(Integer id, String name, String countryCode, String district, Integer population) {
-        this(name, countryCode, district,population);
+        this(name, countryCode, district, population);
         this.id = id;
     }
 
