@@ -47,7 +47,7 @@ public class Application {
         CityRepository cityRepository = new CityRepositoryImpl(dataSource, insertJdbcConverter, updateJdbcConverter, removeJdbcConverter);
         PhoneRepository phoneRepository = new PhoneRepositoryImpl(dataSource, insertJdbcConverter, updateJdbcConverter, removeJdbcConverter);
 
-        City city = new City("aaa", "NLD", "d", 1);
+        City city = new City(207,"aaa", "NLD", "d", 1);
         Phone phone = new Phone("16", "iPhone");
 
 //        getAll(cityRepository);
@@ -67,7 +67,7 @@ public class Application {
 
 //        removeAll(phoneRepository);
 //        removeAll(phoneRepository, ids);
-//        removeAll(cityRepository, idInteger);
+        removeAll(cityRepository, idInteger);
 
 //        editAll(phoneRepository,phoneEntity);
 //        editAll(cityRepository,cityEntity);

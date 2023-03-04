@@ -253,7 +253,7 @@ public abstract class GenericRepository<E, I> implements Repository<E, I> {
             if (rowsEffected == 0) {
                 throw new NotFoundException("Entity not found");
             }
-        } catch (SQLException ex) {
+        } catch (Exception ex) {
             throw new IllegalStateException(ex);
         } finally {
             close(preparedStatement);
